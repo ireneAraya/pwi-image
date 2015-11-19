@@ -11,24 +11,36 @@
 	}
 	.panel{
 		width:450px;
+		height:450px;
+		background-color: rgba(52, 152, 219, 1.0);
 	}
 	.panel-heading{
 		padding: 10px;
-		background-color: rgba(52, 152, 219,0.7);
+		background-color: rgba(252, 252, 252,0.4);
 	}
 	.dashline{
 		float: right;
 	}
-	.panel-body{
-		padding: 10px;
-		background-color: rgba(52, 152, 219, 1.0);
+	.imageCont{
+		display : none;
 	}
-	.txtImput{
+	.txtInput{
 		width: 300px;
+		display: table;
+		margin: 0 auto;
+		margin-top: 100px;
 		border: solid 1px #8e44ad;
 		border-radius: 5px;
-		margin: 0 auto;
-		padding: 5px;
+		padding: 10px;
+		
+		color: #2c3e50;
+	}
+	.btnSave{
+		position: relative;
+		left: 260px;
+		top: 80px;
+		background-color: transparent;
+		border: none;
 	}
 </style>
 
@@ -41,9 +53,10 @@
 					<polygon fill="#894B9D" points="30,30 20.878,30 0,0 9.123,0 "/>
 				</svg>
 			</div>
-			<div class="panel-body">
-				<input type="text" placeholder="http://" class="txtImput">
-				<button id="btnUpload" is="pwi-save"></button>
+			<div class="panel-body cf">
+				<div class="imageCont"></div>
+				<input type="text" placeholder="http://" class="txtInput">
+				<button class="btnSave" id="btnSave"><pwi-save></pwi-save></button>
 			</div>
 		</div>
 	</template>
