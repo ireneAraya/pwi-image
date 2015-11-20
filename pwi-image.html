@@ -1,6 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../pwi-save/pwi-save.html">
 
+<script src="../jquery/dist/jquery.min.js"></script>
+
 <style>
 	.cf:before, .cf:after{
   		content: '';
@@ -21,8 +23,15 @@
 	.dashline{
 		float: right;
 	}
-	.imageCont{
+	.hidden{
 		display : none;
+	}
+	.image{
+		width: 300px;
+		height: 300px;
+		margin: 0 auto;
+		margin-top: 50px;
+		display: table;
 	}
 	.txtInput{
 		width: 300px;
@@ -54,8 +63,8 @@
 				</svg>
 			</div>
 			<div class="panel-body cf">
-				<div class="imageCont"></div>
-				<input type="text" placeholder="http://" class="txtInput">
+				<div id="imageCont" class="hidden"><img src="" alt="your image" id="imageUpl" class="image"></div>
+				<input type="text" placeholder="http://" class="txtInput" id="txtImageUrl">
 				<button class="btnSave" id="btnSave"><pwi-save></pwi-save></button>
 			</div>
 		</div>
@@ -64,16 +73,18 @@
 	<script>
 		Polymer({
 			is: 'pwi-image'
-		})
+		});
+		
+		$('document').ready(function() {
+			$('#btnSave').click(function() {
+				$('#imageUpl').html($('#txtImageUrl').val());
+			})
+		});
+			
+			
+			/*$('#imageCont').removeClass('hidden');
+			$('input#txtImageUrl').addClass('hidden');
+			$('#btnSave').addClass('hidden');*/
+		
 	</script>
 </dom-module>
-
-<h1>Polymer component demo</h1>
-
-<video is="google-castable-video" width="500">
-    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4" type="video/mp4">
-    <source src="https://bennugd-vlc.googlecode.com/files/big_buck_bunny_480p.webm" type="video/webm"></source>
-</video>
-
-<button ng-click="play()">Play</button>
-<button ng-click="pause()">Pause</button>
